@@ -126,7 +126,6 @@ vec3 changeSaturation(vec3 color, float saturation) {
     void main () {
       vec2 st = uv;
       st.y = 1.- uv.y;
-      st.x = 1.- uv.x;
       float l = luma(texture2D(texture,st).rgb);
       vec3 color = texture2D(texture,st).rgb;
       vec3 hsl = RGBToHSL(color) * useHSL;
@@ -232,6 +231,8 @@ vec3 changeSaturation(vec3 color, float saturation) {
     },
     useHSL: () => {
       props.useHSL = !!props.useHSL ? 0 : 1
+      const startBtn = document.querySelector(".btn")
+      //props.useHSL ? startBtn.style.display = "none" : startBtn.style.display = "block"
     },
   }
   const gui = new dat.GUI()

@@ -1,6 +1,6 @@
 console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 
-require("fastclick")(document.body)
+//require("fastclick")(document.body)
 
 const html = require("choo/html")
 const choo = require("choo")
@@ -27,6 +27,7 @@ function mainView(state, emit) {
       <div class="u-canvas-container">
         <canvas class="regl"></canvas>
       </div>
+      <button class="btn">START</button>
     </div>
   `
 }
