@@ -1,3 +1,4 @@
+import Detector from "./detector"
 import LocalMedia from "localmedia"
 import { cover, contain } from "intrinsic-scale"
 import Regl from "./video"
@@ -66,7 +67,7 @@ function store(state, emitter) {
       const media = new LocalMedia()
       media.start(
         {
-          video: { facingMode: { exact: "environment" } },
+          video: Detector.isDesktop ? true : { facingMode: { exact: "environment" } },
           audio: false,
         },
         function(err, stream) {

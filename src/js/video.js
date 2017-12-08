@@ -127,13 +127,13 @@ vec3 changeSaturation(vec3 color, float saturation) {
       vec2 st = uv;
       st.y = 1.- uv.y;
       float l = luma(texture2D(texture,st).rgb);
-      vec3 color = texture2D(texture,st).rgb;
-      vec3 hsl = RGBToHSL(color) * useHSL;
+      vec3 rgbColor = texture2D(texture,st).rgb;
+      vec3 hsl = RGBToHSL(rgbColor) * useHSL;
 
-      vec3 outputColor = hsl + color;
-      outputColor.r = fract(outputColor.r + rMod);
-      outputColor.g = fract(outputColor.g + gMod);
-      outputColor.b = fract(outputColor.b + bMod);
+      vec3 outputColor = hsl + (rgbColor * (1. - useHSL));
+      // outputColor.r = fract(outputColor.r + rMod);
+      // outputColor.g = fract(outputColor.g + gMod);
+      // outputColor.b = fract(outputColor.b + bMod);
 
       float d = abs(outputColor.b - outputColor.r);
       //color.r = color.r + rMod;
@@ -236,11 +236,13 @@ vec3 changeSaturation(vec3 color, float saturation) {
     },
   }
   const gui = new dat.GUI()
-  gui.add(o, "useGyroscope")
-  const colorGui =  gui.addFolder('color')
-  colorGui.add(o, "modifyHue")
-  colorGui.add(o, "modifySat")
-  colorGui.add(o, "modifyLum")
+  if(Detector.isMobile){
+    gui.add(o, "useGyroscope")
+    const colorGui =  gui.addFolder('color')
+    colorGui.add(o, "modifyHue")
+    colorGui.add(o, "modifySat")
+    colorGui.add(o, "modifyLum")
+  }
   gui.add(o, "useHSL")
 }
 
