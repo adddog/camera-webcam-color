@@ -1,0 +1,110 @@
+@import "./ui-header.sss"
+@import "./ui-footer.sss"
+@import "./ui-tooltip.sss"
+@import "./ui-media.sss"
+
+.ui-rooms
+  padding-right: 10px
+  display: flex
+  align-items: flex-end
+  justify-content: flex-end
+  @extend %hideTransitionOut
+  &.hide
+    @extend %hideTransitionIn
+    transform: translateY(100%)
+
+.ui-room
+  cursor: pointer
+  user-select: none
+  position: relative
+  width: 70px
+  height: 70px
+  display: flex
+  align-items: center
+  justify-content: center
+  &.hide
+    display: none
+  span
+    letter-spacing: 1px
+  &:hover
+    filter: hue-rotate(0deg) invert(0.23) saturate(4) !important
+  &--0
+    background-image: url("images/room0.png")
+    background-size: contain
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    span
+      transform: scale(1.0) scaleZ(1.0) translateY(-18px) rotateX(-33deg) rotateY(2deg) translateZ(10px) rotateZ(-19deg)
+      transform-origin: 50% 60%
+  &--1
+    background-image: url("images/room1.png")
+    background-size: contain
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    span
+      transform: scale(1.0) scaleZ(1.0) translateY(-8px) rotateX(-33deg) rotateY(2deg) translateZ(9px) rotateZ(-19deg) skewX(-15deg)
+      transform-origin: 50% 60%
+  &--2
+    background-image: url("images/room2.png")
+    background-size: contain
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    span
+      transform: scale(1.0) scaleZ(1.0) translateY(-18px) rotateX(-33deg) rotateY(2deg) translateZ(10px) rotateZ(-19deg)
+      transform-origin: 50% 60%
+  &--3
+    background-image: url("images/room3.png")
+    background-size: contain
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    span
+      transform: scale(1.0) scaleZ(1.0) translateY(-18px) rotateX(-33deg) rotateY(2deg) translateZ(10px) rotateZ(-19deg)
+      transform-origin: 50% 60%
+
+
+.ui-comms,
+.ui-messages
+  position: fixed
+  display: flex
+  align-items: center
+  justify-content: center
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  pointer-events: none
+  span
+    position: relative
+    font-size: $fsSmall
+    width: 40%
+    letter-spacing: 1px
+    transform: skew(-16deg)
+
+.ui-messages--error
+  color: $cError
+
+.ui-messages--info
+  color: $cBlue
+
+.ui-comms-items
+  display: flex
+  width: 40%
+  font-size: $fsBig
+  flex-direction: column
+  align-items: flex-start
+  justify-content: center
+  span
+    white-space: nowrap
+    margin-bottom: 0.3em
+
+.ui-comm--you
+  font-size: $fsBig
+  left: -10px
+  color: $cBlueDark
+
+.ui-comm--remote
+  font-size: $fsBig
+  left: 10px
+  color: $cOrange
+
+

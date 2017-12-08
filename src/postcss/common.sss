@@ -1,0 +1,80 @@
+$cError: #e21238
+$cWhite: #f9f6ed
+$cDark: #222
+$cOrange: #fbd8bb
+$cBlue: #BBDEFB
+$cBlueDark: #73bbf7
+$fsSmaller: .8em
+$fsSmall: 1em
+$fsBig: 1.6em
+$ffSmall: "Stellar"
+$ffBig: "StellarM"
+
+%flex-c
+  display: flex
+  justify-content: center
+  align-items: center
+
+%t-small
+  color: $cWhite
+  letter-spacing: 1px
+  font-size: $fsSmall
+
+.u-wide
+  position: relative
+  width: 100%
+
+.u-center
+  @extend %flex-c
+
+.u-input
+  border: 0
+  width: 100%
+  font-size: $fsBig
+  line-height: $fsBig
+  text-align: center
+  padding: 10px
+  background: transparent
+  color: $cBlue
+
+  &:focus
+    outline: 0
+
+@keyframes slideDash
+  from
+    transform: translateX( -50% )
+  to
+    transform: translateX(   0% )
+
+@keyframes hueSpin
+  0%
+    transform-origin: 50% 50%
+    transform: rotateZ(0deg) scale(1)
+  50%
+    transform-origin: 50% 50%
+    transform: rotateZ(180deg) scale(0.6)
+  100%
+    transform-origin: 50% 50%
+    transform: rotateZ(360deg) scale(1)
+
+
+.bounceIn
+  animation-name: bounceIn
+
+
+%hideTransitionIn
+  transition: transform 0.3s easeInSine 0.3s
+
+%hideTransitionOut
+  transition: transform 0.3s easeOutSine
+
+%tooltipShow
+  .ui-tooltip
+    opacity: 1
+    transition: opacity 1s easeOutSine 0s
+
+%tooltipHide
+  transform: translateY(100%)
+  .ui-tooltip
+    opacity: 0
+    transition: opacity 1s easeOutSine 3s
